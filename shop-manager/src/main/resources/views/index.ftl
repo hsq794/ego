@@ -145,13 +145,13 @@
                             <a href='商品管理/库存日志.html' target='rightContent'><i class="fa fa-circle-o"></i>库存日志</a>
                         </li>
                         <li onclick="makecss(this)" data-id="goodsTypeList_Goods">
-                            <a href='商品管理/商品模型.html' target='rightContent'><i class="fa fa-circle-o"></i>商品模型</a>
+                            <a href='${ctx}/goods/model/list' target='rightContent'><i class="fa fa-circle-o"></i>商品模型</a>
                         </li>
                         <li onclick="makecss(this)" data-id="specList_Goods">
-                            <a href='商品管理/商品模型-3-规格列表.html' target='rightContent'><i class="fa fa-circle-o"></i>商品规格</a>
+                            <a href='${ctx}/goods/model/spec' target='rightContent'><i class="fa fa-circle-o"></i>商品规格</a>
                         </li>
                         <li onclick="makecss(this)" data-id="goodsAttributeList_Goods">
-                            <a href='商品管理/商品模型-2-属性列表.html' target='rightContent'><i class="fa fa-circle-o"></i>商品属性</a>
+                            <a href='${ctx}/goods/model/attribute' target='rightContent'><i class="fa fa-circle-o"></i>商品属性</a>
                         </li>
                         <li onclick="makecss(this)" data-id="brandList_Goods">
                             <a href='商品管理/品牌列表.html' target='rightContent'><i class="fa fa-circle-o"></i>品牌列表</a>

@@ -2,14 +2,12 @@ package com.xxxx.manager.controller;
 
 import com.xxxx.common.result.BaseResult;
 import com.xxxx.common.result.FileResult;
+import com.xxxx.manager.mapper.GoodsTypeMapper;
 import com.xxxx.manager.pojo.Goods;
 import com.xxxx.manager.pojo.GoodsCategory;
 import com.xxxx.manager.pojo.GoodsImages;
-import com.xxxx.manager.service.BrandService;
-import com.xxxx.manager.service.GoodsCategoryService;
-import com.xxxx.manager.service.GoodsImagesService;
-import com.xxxx.manager.service.GoodsService;
-import com.xxxx.manager.service.UploadService;
+import com.xxxx.manager.pojo.GoodsType;
+import com.xxxx.manager.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +42,9 @@ public class GoodsController {
 	private GoodsImagesService goodsImagesService;
 	@Autowired
 	private UploadService uploadService;
+
+	@Autowired
+	private GoodsModelService goodsModelService;
 
 	/**
 	 * 页面跳转   商品分类-列表页
@@ -167,5 +168,36 @@ public class GoodsController {
 	@ResponseBody
 	public BaseResult selectGoodsListByPage(Goods goods,Integer pageNum,Integer pageSize){
 		return goodsService.selectGoodsListByPage(goods,pageNum,pageSize);
+	}
+
+	/**
+	 * 商品模型
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/model/list")
+	public String goodsModelList(Model model) {
+		model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
+		return "goods/model/goods-model";
+	}
+
+	/**
+	 * 商品属性
+	 * @return
+	 */
+	@RequestMapping("/model/attribute")
+	public String goodsTypeList() {
+		//model.addAttribute("gcvList",goodsCategoryService.selectCategoryListForView());
+		return "goods/model/goods-attribute";
+	}
+
+	/**
+	 * 商品规格
+	 * @return
+	 */
+	@RequestMapping("/model/spec")
+	public String goodsSpecList() {
+		//model.addAttribute("gcvList",goodsCategoryService.selectCategoryListForView());
+		return "goods/model/goods-spec";
 	}
 }

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxxx.manager.mapper.GoodsSpecMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.manager.pojo.GoodsSpec">
+    <id column="spec_id" jdbcType="INTEGER" property="specId" />
+    <result column="spec_name" jdbcType="VARCHAR" property="specName" />
+    <result column="type_id" jdbcType="SMALLINT" property="typeId" />
+    <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+    <result column="spec_order" jdbcType="TINYINT" property="specOrder" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xxxx.manager.pojo.GoodsSpec">
+    <result column="spec_value" jdbcType="LONGVARCHAR" property="specValue" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    spec_id, spec_name, type_id, type_name, spec_order
+  </sql>
+  <sql id="Blob_Column_List">
+    spec_value
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.xxxx.manager.pojo.GoodsSpecExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_goods_spec
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.xxxx.manager.pojo.GoodsSpecExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_goods_spec
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_goods_spec
+    where spec_id = #{specId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_goods_spec
+    where spec_id = #{specId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xxxx.manager.pojo.GoodsSpecExample">
+    delete from t_goods_spec
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xxxx.manager.pojo.GoodsSpec">
+    insert into t_goods_spec (spec_id, spec_name, type_id, 
+      type_name, spec_order, spec_value
+      )
+    values (#{specId,jdbcType=INTEGER}, #{specName,jdbcType=VARCHAR}, #{typeId,jdbcType=SMALLINT}, 
+      #{typeName,jdbcType=VARCHAR}, #{specOrder,jdbcType=TINYINT}, #{specValue,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xxxx.manager.pojo.GoodsSpec">
+    insert into t_goods_spec
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="specId != null">
+        spec_id,
+      </if>
+      <if test="specName != null">
+        spec_name,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="typeName != null">
+        type_name,
+      </if>
+      <if test="specOrder != null">
+        spec_order,
+      </if>
+      <if test="specValue != null">
+        spec_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="specId != null">
+        #{specId,jdbcType=INTEGER},
+      </if>
+      <if test="specName != null">
+        #{specName,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="specOrder != null">
+        #{specOrder,jdbcType=TINYINT},
+      </if>
+      <if test="specValue != null">
+        #{specValue,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xxxx.manager.pojo.GoodsSpecExample" resultType="java.lang.Long">
+    select count(*) from t_goods_spec
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_goods_spec
+    <set>
+      <if test="record.specId != null">
+        spec_id = #{record.specId,jdbcType=INTEGER},
+      </if>
+      <if test="record.specName != null">
+        spec_name = #{record.specName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.typeId != null">
+        type_id = #{record.typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.typeName != null">
+        type_name = #{record.typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specOrder != null">
+        spec_order = #{record.specOrder,jdbcType=TINYINT},
+      </if>
+      <if test="record.specValue != null">
+        spec_value = #{record.specValue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_goods_spec
+    set spec_id = #{record.specId,jdbcType=INTEGER},
+      spec_name = #{record.specName,jdbcType=VARCHAR},
+      type_id = #{record.typeId,jdbcType=SMALLINT},
+      type_name = #{record.typeName,jdbcType=VARCHAR},
+      spec_order = #{record.specOrder,jdbcType=TINYINT},
+      spec_value = #{record.specValue,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_goods_spec
+    set spec_id = #{record.specId,jdbcType=INTEGER},
+      spec_name = #{record.specName,jdbcType=VARCHAR},
+      type_id = #{record.typeId,jdbcType=SMALLINT},
+      type_name = #{record.typeName,jdbcType=VARCHAR},
+      spec_order = #{record.specOrder,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.manager.pojo.GoodsSpec">
+    update t_goods_spec
+    <set>
+      <if test="specName != null">
+        spec_name = #{specName,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="typeName != null">
+        type_name = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="specOrder != null">
+        spec_order = #{specOrder,jdbcType=TINYINT},
+      </if>
+      <if test="specValue != null">
+        spec_value = #{specValue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where spec_id = #{specId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xxxx.manager.pojo.GoodsSpec">
+    update t_goods_spec
+    set spec_name = #{specName,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=SMALLINT},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      spec_order = #{specOrder,jdbcType=TINYINT},
+      spec_value = #{specValue,jdbcType=LONGVARCHAR}
+    where spec_id = #{specId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.manager.pojo.GoodsSpec">
+    update t_goods_spec
+    set spec_name = #{specName,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=SMALLINT},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      spec_order = #{specOrder,jdbcType=TINYINT}
+    where spec_id = #{specId,jdbcType=INTEGER}
+  </update>
+</mapper>
