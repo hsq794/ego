@@ -181,23 +181,5 @@ public class GoodsController {
 		return "goods/model/goods-model";
 	}
 
-	/**
-	 * 商品属性
-	 * @return
-	 */
-	@RequestMapping("/model/attribute")
-	public String goodsTypeList() {
-		//model.addAttribute("gcvList",goodsCategoryService.selectCategoryListForView());
-		return "goods/model/goods-attribute";
-	}
 
-	/**
-	 * 商品规格
-	 * @return
-	 */
-	@RequestMapping("/model/spec")
-	public String goodsSpecList() {
-		//model.addAttribute("gcvList",goodsCategoryService.selectCategoryListForView());
-		return "goods/model/goods-spec";
-	}
 }

@@ -125,214 +125,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                    <td class="text-center">33</td>
-                                    <td class="text-center">运营商</td>
-                                    <td class="text-center">
-										<a href="javascript:typeList()" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>
-                                        <a href="${ctx}/goods/model/spec" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="规格列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/33" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/33');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">32</td>
-                                    <td class="text-center">相机</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/32" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/32" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/32" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/32');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">31</td>
-                                    <td class="text-center">电池、电源、充电器</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/31" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/31" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/31" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/31');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">30</td>
-                                    <td class="text-center">洗衣机</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/30" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/30" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/30" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/30');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">29</td>
-                                    <td class="text-center">冰箱</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/29" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/29" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/29" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/29');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">28</td>
-                                    <td class="text-center">珠宝</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/28" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/28" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/28" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/28');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">27</td>
-                                    <td class="text-center">香水</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/27" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/27" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/27" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/27');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">26</td>
-                                    <td class="text-center">文胸</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/26" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/26" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/26" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/26');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">25</td>
-                                    <td class="text-center">针织衫</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/25" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/25" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/25" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/25');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">24</td>
-                                    <td class="text-center">毛呢大衣</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/24" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/24" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/24" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/24');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">23</td>
-                                    <td class="text-center">餐具</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/23" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/23" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/23" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/23');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">22</td>
-                                    <td class="text-center">雨伞</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/22" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/22" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/22" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/22');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">21</td>
-                                    <td class="text-center">床</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/21" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/21" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/21" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/21');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">20</td>
-                                    <td class="text-center">吸顶灯</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/20" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/20" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/20" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/20');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">19</td>
-                                    <td class="text-center">家纺</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/19" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/19" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/19" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/19');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">18</td>
-                                    <td class="text-center">电视</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/18" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/18" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/18" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/18');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">17</td>
-                                    <td class="text-center">网络盒子</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/17" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/17" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/17" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/17');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">16</td>
-                                    <td class="text-center">路由器</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/16" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/16" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/16" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/16');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">15</td>
-                                    <td class="text-center">平板电脑</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/15" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/15" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/15" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/15');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">13</td>
-                                    <td class="text-center">衣服</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/13" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/13" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/13" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/13');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">9</td>
-                                    <td class="text-center">精品手机</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/9" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/9" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/9" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/9');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">8</td>
-                                    <td class="text-center">化妆品</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/8" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/8" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/8" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/8');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr><tr>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">手机</td>
-                                    <td class="text-center">
-										<a href="/index/Admin/Goods/goodsAttributeList/type_id/4" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>                                    
-                                        <a href="/index/Admin/Goods/specList/type_id/4" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">规格列表</a>
-                                        <a href="/index/Admin/goods/addEditGoodsType/id/4" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/4');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
-                                    </td>
-                                </tr>                            </tbody>
+                                <#list goodsModel as model>
+                                    <tr>
+                                        <td class="text-center">${model.id}</td>
+                                        <td class="text-center">${model.name}</td>
+                                        <td class="text-center">
+                                            <a href="${ctx}/goods/model/attributeList?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>
+                                            <a href="${ctx}/goods/model/spec" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="规格列表">规格列表</a>
+                                            <a href="/index/Admin/goods/addEditGoodsType/id/${model.id}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/${model.id}');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </#list>
+                            </tbody>
                         </table>
                     </div>
                 
@@ -353,7 +158,7 @@
   <script type="text/javascript">
 
       function typeList() {
-          window.location.href = "${ctx}/goods/model/type-list";
+          window.location.href = "${ctx}/goods/model/attribute";
       }
   </script>
 </body>

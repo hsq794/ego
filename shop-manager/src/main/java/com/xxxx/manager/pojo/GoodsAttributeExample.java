@@ -258,7 +258,7 @@ public class GoodsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIdEqualTo(Short value) {
+        public Criteria andTypeIdEqualTo(Integer value) {
             addCriterion("type_id =", value, "typeId");
             return (Criteria) this;
         }

@@ -1,6 +1,8 @@
 <html>
 <head>
     <#include "../../head.ftl">
+    <!-- 引入doT.js -->
+    <script type="text/javascript" src="${ctx}/static/js/doT.min.js"></script>
     <script type="text/javascript">
     function delfunc(obj){
     	layer.confirm('确认删除？', {
@@ -109,10 +111,18 @@
                 <div class="form-group">
                   <select name="type_id" id="type_id" class="form-control">
                     	<option value="">所有模型</option>
-                        <option value="33">运营商</option><option value="32">相机</option><option value="4">手机</option><option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>                   </select>
+                      <#list goodsModel as model>
+                          <#if typeId??>
+                              <option value="${model.id}" <#if (model.id==typeId)> selected</#if> >${model.name}</option>
+                          <#else>
+                              <option value="${model.id}">${model.name}</option>
+                          </#if>
+
+                      </#list>
+                  </select>
                 </div>                  
                 <div class="form-group">                 
-	                <button type="submit" onclick="ajax_get_table('search-form2',1)" id="button-filter" class="btn btn-primary pull-right">
+	                <button type="submit" onclick="ajax_get_table(1)" id="button-filter" class="btn btn-primary pull-right">
 	                 <i class="fa fa-search"></i> 筛选
 	                </button>
                 </div>
@@ -137,32 +147,17 @@
                 <th class="sorting text-right">操作</th> 
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                    <td class="text-center">
-                        <input name="selected[]" value="6" type="checkbox">
-                    </td>
-                    <td class="text-right">329</td>
-                    <td class="text-left">测试属性01</td>
-                    <td class="text-left">运营商</td>
-                    <td class="text-left">手工录入</td>
-                    <td class="text-left"></td>
-                    <td class="text-center">                        
-                        <img src="${ctx}/static/images/yes.png" onclick="changeTableVal('goods_attribute','attr_id','329','attr_index',this)" width="20" height="20">
-                    </td>                    
-                    <td class="text-left">
-                        <input onchange="updateSort('goods_attribute','attr_id','329','order',this)" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onpaste="this.value=this.value.replace(/[^\d]/g,'')" size="4" value="50" type="text">
-                    </td>
-                    <td class="text-right">                       
-                        <a href="商品模型-2-属性列表-添加属性.html" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                        <a href="javascript:del_fun('/index/Admin/Goods/delGoodsAttribute/id/329');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a></td>
-                </tr>            </tbody>
+            <tbody id="goodsContent">
+            <#--<#list goodsAttribute as attribute>
+            </#list>-->
+            </tbody>
         </table>
     </div>
 <input name="__hash__" value="9dfb4325c77ab60718bef22df39852ac_8ac79714c92a6310791e7291bbb4c681" type="hidden"></form>
 <div class="row">
-    <div class="col-sm-6 text-left"></div>
-    <div class="col-sm-6 text-right"><div class="dataTables_paginate paging_simple_numbers"><ul class="pagination">    </ul></div></div>
+    <div class="col-sm-3 text-left"></div>
+    <div class="col-sm-9 text-right">
+        <div class="dataTables_paginate paging_simple_numbers"><ul class="pagination" id="pageContent">    </ul></div></div>
 </div>
 <script>
     // 点击分页触发的事件
@@ -179,22 +174,117 @@
   </section>
   <!-- /.content --> 
 </div>
-<!-- /.content-wrapper --> 
+<!-- /.content-wrapper -->
+
+<!-- 编写商品模板 -->
+<script type="template" id="goodsTemplate">
+    {{ for(var i = 0; i < it.length; i++){ }}
+    <tr>
+        <td class="text-center">
+            <input name="selected[]" value="6" type="checkbox">
+        </td>
+        <td class="text-right">{{=it[i].attrId}}</td>
+        <td class="text-left">{{=it[i].attrName}}</td>
+        <td class="text-left">{{=it[i].typeId}}</td>
+        <td class="text-left">{{=it[i].attrInputType}}</td>
+        <td class="text-left"></td>
+        <td class="text-center">
+            <img src="${ctx}/static/images/yes.png" onclick="changeTableVal('goods_attribute','attr_id','329','attr_index',this)" width="20" height="20">
+        </td>
+        <td class="text-left">
+            <input onchange="updateSort('goods_attribute','attr_id','329','order',this)" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onpaste="this.value=this.value.replace(/[^\d]/g,'')" size="4" value="50" type="text">
+        </td>
+        <td class="text-right">
+            <a href="商品模型-2-属性列表-添加属性.html" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+            <a href="javascript:del_fun('/index/Admin/Goods/delGoodsAttribute/id/329');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a></td>
+    </tr>
+    {{ } }}
+</script>
+
+<!-- 编写分页模板 -->
+<script type="template" id="pageTemplate">
+    {{ if(it.hasPreviousPage){ }}
+    <li class="paginate_button prev">
+        <a href="javascript:ajax_get_table('{{=it.prePage}}');">上一页</a>
+    </li>
+    {{ } }}
+
+    {{ for(var i = 1; i <= it.pages; i++){ }}
+    <li class="paginate_button
+        {{ if(i == it.pageNum){ }}
+        active
+        {{ } }}
+        ">
+        <a href="javascript:ajax_get_table('{{=i}}');">{{=i}}</a>
+    </li>
+    {{ } }}
+
+    {{ if(it.hasNextPage){ }}
+    <li class="paginate_button next">
+        <a href="javascript:ajax_get_table('{{=it.nextPage}}');">下一页</a>
+    </li>
+    {{ } }}
+</script>
+
 <script>
+    $(document).ready(function () {
+        // ajax 加载商品列表
+        ajax_get_table(1);
+
+    });
+
+    //ajax抓取页面 page为当前第几页
+    function ajax_get_table(page) {
+        var size=10;
+        $.ajax({
+            url: "${ctx}/goods/model/attribute",
+            type: "GET",
+            data: {
+                id:$('#type_id option:selected') .val(),
+                pageNum: page,
+                pageSize: size
+            },
+            dataType: "JSON",
+            success: function (result) {
+                console.log(result);
+                if (200 == result.code) {
+                    if (result.pageInfo.list.length > 0) {
+                        //获取商品列表模板
+                        var goodsTemp = doT.template($("#goodsTemplate").text());
+                        //填充数据
+                        $("#goodsContent").html(goodsTemp(result.pageInfo.list));
+                        //获取分页模板
+                        var pageTemp = doT.template($("#pageTemplate").text());
+                        //填充数据
+                        $("#pageContent").html(pageTemp(result.pageInfo));
+                    } else {
+                        layer.msg("该分类或品牌暂无商品信息！");
+                    }
+                } else {
+                    layer.msg("该分类或品牌暂无商品信息！");
+                }
+            },
+            error: function (result) {
+                console.log(result)
+            }
+        });
+    }
+
     // ajax 抓取页面 form 为表单id  page 为当前第几页
-    function ajax_get_table(form,page){
+   /* function ajax_get_table(form,page){
 		cur_page = page; //当前页面 保存为全局变量
             $.ajax({
                 type : "POST",
-                url:"/index?m=Admin&c=goods&a=ajaxGoodsAttributeList&p="+page,//+tab,
+                url:"/index?m=Admin&c=goods&a=ajaxGoodsAttributeList&pageNum="+page,//+tab,
                 data : $('#'+form).serialize(),// 你的formid
                 success: function(data){
                     $("#ajax_return").html('');
                     $("#ajax_return").append(data);
                 }
             });
-        }			 	
+        }*/
 	 
-</script> 
+</script>
+
 
 </body></html>

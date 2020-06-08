@@ -151,7 +151,7 @@
                             <a href='${ctx}/goods/model/spec' target='rightContent'><i class="fa fa-circle-o"></i>商品规格</a>
                         </li>
                         <li onclick="makecss(this)" data-id="goodsAttributeList_Goods">
-                            <a href='${ctx}/goods/model/attribute' target='rightContent'><i class="fa fa-circle-o"></i>商品属性</a>
+                            <a href='${ctx}/goods/model/attributeList' target='rightContent'><i class="fa fa-circle-o"></i>商品属性</a>
                         </li>
                         <li onclick="makecss(this)" data-id="brandList_Goods">
                             <a href='商品管理/品牌列表.html' target='rightContent'><i class="fa fa-circle-o"></i>品牌列表</a>
