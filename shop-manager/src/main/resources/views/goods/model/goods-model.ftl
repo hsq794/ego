@@ -109,7 +109,7 @@
             <div class="row navbar-form">
             	<div class="col-xs-10"><span class="text-warning">商品模型是用来规定某一类商品共有规格和属性的集合，其中规格会影响商品价格，同一个商品不同的规格价格会不同，而属性仅仅是商品的属性特质展示</span></div>
             	<div class="col-xs-2">
-                   <button type="submit" onclick="location.href='商品模型-1-新增.html'"  class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增商品模型</button>
+                   <button type="submit" onclick="location.href='${ctx}/goods/model/add'"  class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增商品模型</button>
             	</div>
             </div>
           </div>

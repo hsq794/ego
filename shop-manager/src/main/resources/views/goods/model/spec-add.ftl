@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <#include ../../head.ftl>
+    <#include "../../head.ftl">
     <script type="text/javascript">
     function delfunc(obj){
     	layer.confirm('确认删除？', {

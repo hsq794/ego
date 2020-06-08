@@ -43,4 +43,15 @@ public class GoodsAttributeController {
         }
         return "goods/model/goods-attribute";
     }
+
+    /**
+     * 商品属性添加页面跳转
+     * @param model
+     * @return
+     */
+    @RequestMapping("/attribute/add")
+    public String goodsModelAdd(Model model) {
+        model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
+        return "goods/model/attr-add";
+    }
 }

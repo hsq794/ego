@@ -181,5 +181,22 @@ public class GoodsController {
 		return "goods/model/goods-model";
 	}
 
+	/**
+	 * 商品模型添加页面跳转
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/model/add")
+	public String goodsModelAdd(Model model,GoodsType goodsType) {
+		BaseResult baseResult = goodsModelService.addGoodsModel(goodsType);
+		if(baseResult.getCode()==200){
+			model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
+			return "goods/model/goods-model";
+		}
+		return "goods/model/model-add";
+	}
+
+
+
 
 }

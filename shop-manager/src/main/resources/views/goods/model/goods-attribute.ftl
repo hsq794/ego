@@ -126,7 +126,7 @@
 	                 <i class="fa fa-search"></i> 筛选
 	                </button>
                 </div>
-                <button type="button" onclick="location.href='商品模型-2-属性列表-添加属性.html'" class="btn btn-primary pull-right">
+                <button type="button" onclick="location.href='${ctx}/goods/model/attribute/add'" class="btn btn-primary pull-right">
                  <i class="fa fa-plus"></i> 添加属性
                 </button>
               <input name="__hash__" value="fd6059588f758033044de1141d249844_02bad2de3b662123d3092c856167c3f1" type="hidden"></form>
