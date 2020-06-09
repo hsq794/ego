@@ -30,7 +30,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!--  <img src="${ctx}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
                             <i class="glyphicon glyphicon-user"></i>
-                            <span class="hidden-xs">欢迎：${user.userName}</span>
+                           <#-- <span class="hidden-xs">欢迎：${user.userName}</span>-->
                         </a>
                         <ul class="dropdown-menu">
                             <li class="user-footer">

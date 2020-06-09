@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <#include ../../head.ftl>
+    <#include "../../head.ftl">
     <script type="text/javascript">
     function delfunc(obj){
     	layer.confirm('确认删除？', {
@@ -124,33 +124,42 @@
                                 <tr>
                                     <td>规格名称：</td>
                                     <td>
-                                        <input value="" name="name" type="text">
+                                        <input value="" name="specName" type="text">
                                         <span id="err_name" style="color:#F00; display:none;"></span>                                        
                                     </td>
                                 </tr>  
                                 <tr>
                                     <td>所属商品类型：</td>
                                     <td>
-                                        <select name="type_id" id="type_id">
-                                             <option value="">请选择</option>
-                                            <option value="33">运营商</option><option value="32">相机</option><option value="4">手机</option><option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>                                        
+
+                                        <select name="typeId" id="type_id">
+
+                                            <option value="">请选择</option>
+                                            <#list typeList as list>
+                                            <option value="${list.id}">${list.name}</option>
+                                           <#-- <option value="32">相机</option>
+                                            <option value="4">手机</option>
+                                            <option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>
+                                      -->
+                                            </#list>
                                         </select>
+
                                         <span id="err_type_id" style="color:#F00; display:none;"></span>                                        
                                     </td>
                                 </tr>  
                                 
-                                <tr style="display:none;">
+                                <#--<tr style="display:none;">
                                     <td>能否进行检索：</td>
                                     <td>
                                         <input value="0" name="search_index" checked="checked" .="" type="radio">不需要检索
                                         <input value="1" name="search_index" checked="checked" type="radio">关键字检索
-                                        <!--<input type="radio" value="2" name="search_index"   />范围检索-->
+                                        <!--<input type="radio" value="2" name="search_index"   />范围检索&ndash;&gt;
                                     </td>
-                                </tr>  
+                                </tr>  -->
                                 <tr>
                                     <td>规格项：</td> 
                                     <td>
-                                    <textarea rows="5" cols="30" name="items"></textarea>
+                                    <textarea rows="5" cols="30" name="specValue"></textarea>
 									一行为一个规格项
                                     <span id="err_items" style="color:#F00; display:none;"></span>
                                     </td>
@@ -158,7 +167,7 @@
                                 <tr>
                                     <td>排序：</td>
                                     <td>
-                                        <input value="50" name="order" type="text">
+                                        <input value="50" name="specOrder" type="text">
                                         <span id="err_order" style="color:#F00; display:none;"></span>                                        
                                     </td>
                                 </tr>                                                           
@@ -168,7 +177,7 @@
                     </div>              
                     <div class="pull-right">
                         <input name="id" value="" type="hidden">
-                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditSpecForm','/index/Admin/Goods/addEditSpec/is_ajax/1');" data-original-title="保存"><i class="fa fa-save"></i></button>
+                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditSpecForm','${ctx}/goods/spec/save','${ctx}/goods/spec/add','${ctx}/goods/model/spec','id');" data-original-title="保存"><i class="fa fa-save"></i></button>
                     </div>
 			    <input name="__hash__" value="a233532f2a8e0afcb9726f917e56fc98_0f966e0492f97242652d5d5f6a9a5e9a" type="hidden"></form><!--表单数据-->
                 </div>

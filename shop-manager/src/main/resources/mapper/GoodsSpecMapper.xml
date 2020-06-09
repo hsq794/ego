@@ -6,6 +6,7 @@
     <result column="spec_name" jdbcType="VARCHAR" property="specName" />
     <result column="type_id" jdbcType="SMALLINT" property="typeId" />
     <result column="type_name" jdbcType="VARCHAR" property="typeName" />
+      <result column="spec_value" jdbcType="VARCHAR" property="specValue" />
     <result column="spec_order" jdbcType="TINYINT" property="specOrder" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.xxxx.manager.pojo.GoodsSpec">
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    spec_id, spec_name, type_id, type_name, spec_order
+    spec_id, spec_name, type_id,type_name, spec_value,spec_order
   </sql>
   <sql id="Blob_Column_List">
     spec_value

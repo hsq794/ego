@@ -1,5 +1,0 @@
-com\xxxx\sso\mapper\AdminMapper.class
-com\xxxx\sso\config\RedisConfig.class
-com\xxxx\sso\service\impl\SsoServiceImpl.class
-com\xxxx\sso\service\SsoService.class
-com\xxxx\sso\SsoApplication.class
