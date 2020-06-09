@@ -317,7 +317,8 @@
       attr_index = #{attrIndex,jdbcType=TINYINT},
       attr_type = #{attrType,jdbcType=TINYINT},
       attr_input_type = #{attrInputType,jdbcType=TINYINT},
-      attr_order = #{attrOrder,jdbcType=TINYINT}
+      attr_order = #{attrOrder,jdbcType=TINYINT},
+      attr_values = #{attrValues,jdbcType=VARCHAR}
     where attr_id = #{attrId,jdbcType=INTEGER}
   </update>
 </mapper>

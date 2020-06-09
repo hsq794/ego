@@ -114,7 +114,8 @@
                         <li class="active"><a href="#tab_tongyong" data-toggle="tab">商品类型</a></li>
                     </ul>
                     <!--表单数据-->
-                    <form method="post" id="addEditGoodsTypeForm" onsubmit="return checkgoodsTypeName();">                    
+
+                    <form method="post" id="addEditGoodsTypeForm">
                         <!--通用信息-->
                     <div class="tab-content">                 	  
                         <div class="tab-pane active" id="tab_tongyong">
@@ -124,17 +125,21 @@
                                 <tr>
                                     <td>类型名称:</td>
                                     <td>
-                                        <input type="text" value="" name="name"/>
-                                        <span id="err_name" style="color:#F00; display:none;">商品类型名称不能为空!!</span>                                        
+
+                                        <input <#if goodsType.name??>value="${goodsType.name}"</#if> name="name" type="text">
+                                        <span id="err_name" style="color:#F00; display:none;">商品类型名称不能为空!!</span>
+
                                     </td>
-                                </tr>                                
+                                </tr>
                                 </tbody>                                
                                 </table>
                         </div>                           
                     </div>              
                     <div class="pull-right">
-                        <input type="hidden" name="id" value="">
-                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="submit" data-original-title="保存"><i class="fa fa-save"></i></button>
+
+                            <input type="hidden" name="id" <#if goodsType.id?? >value="${goodsType.id}"</#if> >
+
+                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditGoodsTypeForm','${ctx}/goods/model/addOrUpdate','${ctx}/goods/model/addPage','${ctx}/goods/model/list');" data-original-title="保存"><i class="fa fa-save"></i></button>
                     </div>
 			    <input type="hidden" name="__hash__" value="cf554f9a4e1610446043787a5ca8b989_c9e863c0aaa1bb40de4beaffc1d599a7" /></form><!--表单数据-->
                 </div>

@@ -40,4 +40,37 @@ public class GoodsModelServiceImpl implements GoodsModelService {
         int row = goodsTypeMapper.insert(goodsType);
         return row>0?BaseResult.success():BaseResult.error();
     }
+
+    /**
+     * 商品模型修改
+     * @param goodsType
+     * @return
+     */
+    @Override
+    public BaseResult updateGoodsModel(GoodsType goodsType) {
+        if(StringUtils.isEmpty(goodsType.getName())){
+            return BaseResult.error();
+        }
+        GoodsTypeExample goodsTypeExample = new GoodsTypeExample();
+        int row = goodsTypeMapper.updateByPrimaryKey(goodsType);
+        return row>0?BaseResult.success():BaseResult.error();
+    }
+
+
+    @Override
+    public GoodsType selectGoodsModelById(Short typeId) {
+
+        return goodsTypeMapper.selectByPrimaryKey(typeId);
+    }
+
+    /**
+     * 商品模型删除功能
+     * @param typeId
+     * @return
+     */
+    @Override
+    public BaseResult deleteGoodsModel(short typeId) {
+        int row = goodsTypeMapper.deleteByPrimaryKey(typeId);
+        return row>0?BaseResult.success():BaseResult.error();
+    }
 }

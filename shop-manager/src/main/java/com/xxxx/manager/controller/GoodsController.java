@@ -186,17 +186,45 @@ public class GoodsController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/model/add")
+	@RequestMapping("/model/addPage")
 	public String goodsModelAdd(Model model,GoodsType goodsType) {
-		BaseResult baseResult = goodsModelService.addGoodsModel(goodsType);
-		if(baseResult.getCode()==200){
-			model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
-			return "goods/model/goods-model";
+		if(!StringUtils.isEmpty(goodsType.getId())){
+			model.addAttribute("typeId",goodsType.getId());
+			GoodsType goodsModel = goodsModelService.selectGoodsModelById(goodsType.getId());
+			if(null == goodsModel){
+				model.addAttribute("goodsType",new GoodsType());
+			}else {
+				model.addAttribute("goodsType",goodsModel);
+			}
 		}
+		model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
 		return "goods/model/model-add";
 	}
 
+	@RequestMapping("/model/addOrUpdate")
+	@ResponseBody
+	public BaseResult goodsModelupdate(Model model,GoodsType goodsType) {
+		if(null!=goodsType.getId()){
+			return goodsModelService.updateGoodsModel(goodsType);
+		}else {
+			model.addAttribute("goodsModel",goodsModelService.selectGoodsModel());
+			return goodsModelService.addGoodsModel(goodsType);
+		}
+	}
 
+	/**
+	 * 商品模型删除功能实现
+	 * @param typeId
+	 * @return
+	 */
+	@RequestMapping("/model/delete")
+	@ResponseBody
+	public BaseResult goodsModelDelete(Short typeId) {
+		if(null==typeId){
+			return BaseResult.error();
+		}
+		return goodsModelService.deleteGoodsModel(typeId);
+	}
 
 
 }

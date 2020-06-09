@@ -8,4 +8,8 @@ import java.util.List;
 public interface GoodsModelService {
     List<GoodsType> selectGoodsModel();
     BaseResult addGoodsModel(GoodsType goodsType);
+    BaseResult updateGoodsModel(GoodsType goodsType);
+
+    GoodsType selectGoodsModelById(Short typeId);
+    BaseResult deleteGoodsModel(short typeId);
 }

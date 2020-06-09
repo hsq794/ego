@@ -125,16 +125,18 @@
                                 <tr>
                                     <td>属性名称：</td>
                                     <td>
-                                        <input value="" name="attr_name" type="text">
-                                        <span id="err_attr_name" style="color:#F00; display:none;"></span>                                        
+                                        <input <#if goodsAttribute.attrName??>value="${goodsAttribute.attrName}"</#if> name="attrName" type="text" >
+                                        <span id="err_attr_name" style="color:#F00; display:none;"></span>
                                     </td>
                                 </tr>  
                                 <tr>
                                     <td>所属商品类型：</td>
                                     <td>
-                                        <select name="type_id" id="type_id">
-                                             <option value="">请选择</option>
-                                            <option value="33">运营商</option><option value="32">相机</option><option value="4">手机</option><option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>                                        
+                                        <select name="typeId" id="type_id">
+                                            <option value="">请选择</option>
+                                            <#list goodsModel as model>
+                                                <option value="${model.id}" <#if goodsAttribute.typeId??><#if (model.id==goodsAttribute.typeId)>selected</#if></#if> >${model.name}</option>
+                                            </#list>
                                         </select>
                                         <span id="err_type_id" style="color:#F00; display:none;"></span>                                        
                                     </td>
@@ -142,44 +144,47 @@
                                 <tr>
                                     <td>能否进行检索：</td>
                                     <td>
-                                        <input value="0" name="attr_index" checked="checked" .="" type="radio">不需要检索
-                                        <input value="1" name="attr_index" checked="checked" type="radio">关键字检索
+
+                                        <input value="0" name="attrIndex" <#if goodsAttribute.attrIndex??> <#if goodsAttribute.attrIndex==0>checked="checked"</#if ></#if > type="radio">不需要检索
+                                        <input value="1" name="attrIndex" <#if goodsAttribute.attrIndex??> <#if goodsAttribute.attrIndex==1>checked="checked"</#if ></#if > type="radio">关键字检索
+
                                         <!--<input type="radio" value="2" name="attr_index"   />范围检索-->
                                     </td>
                                 </tr>  
-                                <!--
+
                                 <tr>
                                     <td>属性是否可选：</td>
                                     <td>
-                                        <input type="radio" value="0" name="attr_type" checked="checked"  />唯一属性
-                                        <input type="radio" value="1" name="attr_type"  />单选属性
-                                        <input type="radio" value="2" name="attr_type"  />复选属性 
+                                        <input type="radio" value="0" name="attrType" <#if goodsAttribute.attrType??><#if goodsAttribute.attrType==0>checked="checked"</#if ></#if>  />唯一属性
+                                        <input type="radio" value="1" name="attrType" <#if goodsAttribute.attrType??><#if goodsAttribute.attrType==1>checked="checked"</#if ></#if> />单选属性
+                                        <input type="radio" value="2" name="attrType" <#if goodsAttribute.attrType??><#if goodsAttribute.attrType==2>checked="checked"</#if ></#if> />复选属性
                                     </td>
-                                </tr>  
-                                -->
+                                </tr>
+
                                 <tr>
                                     <td>该属性值的录入方式：</td>
                                     <td>
-                                        <input value="0" name="attr_input_type" checked="checked" type="radio">手工录入
-                                        <input value="1" name="attr_input_type" type="radio">从下面的列表中选择（一行代表一个可选值）
-                                        <input value="2" name="attr_input_type" type="radio">多行文本框                                     
+                                        <input value="0" name="attrInputType" <#if goodsAttribute.attrInputType??><#if goodsAttribute.attrInputType==0>checked="checked"</#if ></#if >  type="radio">手工录入
+                                        <input value="1" name="attrInputType" <#if goodsAttribute.attrInputType??><#if goodsAttribute.attrInputType==1>checked="checked"</#if ></#if >  type="radio">从下面的列表中选择（一行代表一个可选值）
+                                        <input value="2" name="attrInputType" <#if goodsAttribute.attrInputType??><#if goodsAttribute.attrInputType==2>checked="checked"</#if ></#if >  type="radio">多行文本框
                                     </td>
                                 </tr>  
                                 <tr>
                                     <td>可选值列表：</td> 
                                     <td>
-                                    <textarea rows="5" cols="30" name="attr_values"></textarea>
+                                    <textarea rows="5" cols="30" name="attrValues"> <#if goodsAttribute.attrValues?? >${goodsAttribute.attrValues}</#if> </textarea>
                                     录入方式为手工或者多行文本时，此输入框不需填写。
                                     <span id="err_attr_values" style="color:#F00; display:none;"></span>
                                     </td>
-                                </tr>                                
+                                </tr>
+
                                 </tbody>                                
                                 </table>
                         </div>                           
                     </div>              
                     <div class="pull-right">
-                        <input name="attr_id" value="" type="hidden">
-                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditGoodsAttributeForm','/index/Admin/Goods/addEditGoodsAttribute/is_ajax/1');" data-original-title="保存"><i class="fa fa-save"></i></button>
+                        <input name="attrId" <#if goodsAttribute.attrId?? >value="${goodsAttribute.attrId}"</#if> type="hidden">
+                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditGoodsAttributeForm','${ctx}/goods/model/attribute/addOrUpdate','${ctx}/goods/model/attribute/addPage','${ctx}/goods/model/attributeList');" data-original-title="保存"><i class="fa fa-save"></i></button>
                     </div>
 			    <input name="__hash__" value="4f6b0fa49bbc753aefcdb9e57f808c4a_975a0691766e2b5a565f48898bb2c171" type="hidden"></form><!--表单数据-->
                 </div>

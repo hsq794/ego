@@ -126,7 +126,7 @@
 	                 <i class="fa fa-search"></i> 筛选
 	                </button>
                 </div>
-                <button type="button" onclick="location.href='${ctx}/goods/model/attribute/add'" class="btn btn-primary pull-right">
+                <button type="button" onclick="location.href='${ctx}/goods/model/attribute/addPage'" class="btn btn-primary pull-right">
                  <i class="fa fa-plus"></i> 添加属性
                 </button>
               <input name="__hash__" value="fd6059588f758033044de1141d249844_02bad2de3b662123d3092c856167c3f1" type="hidden"></form>
@@ -148,8 +148,7 @@
             </tr>
             </thead>
             <tbody id="goodsContent">
-            <#--<#list goodsAttribute as attribute>
-            </#list>-->
+
             </tbody>
         </table>
     </div>
@@ -195,8 +194,8 @@
             <input onchange="updateSort('goods_attribute','attr_id','329','order',this)" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onpaste="this.value=this.value.replace(/[^\d]/g,'')" size="4" value="50" type="text">
         </td>
         <td class="text-right">
-            <a href="商品模型-2-属性列表-添加属性.html" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-            <a href="javascript:del_fun('/index/Admin/Goods/delGoodsAttribute/id/329');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a></td>
+            <a href="${ctx}/goods/model/attribute/addPage?attrId={{=it[i].attrId}}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+            <a href="javascript:delfunc({{=it[i].attrId}});" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a></td>
     </tr>
     {{ } }}
 </script>
@@ -268,6 +267,41 @@
                 console.log(result)
             }
         });
+    }
+
+    /**
+     * 删除
+     * @returns {void}
+     */
+    function delfunc(typeId){
+        layer.confirm('确认删除？', {
+                btn: ['确定','取消'] //按钮
+            }, function(){
+                $.ajax({
+                    type : 'post',
+                    url : "${ctx}/goods/model/attribute/delete",
+                    data : {
+                        typeId:typeId
+                    },
+                    dataType : 'json',
+                    success : function(result){
+                        if(result.code==200){
+                            // console.log("11111");
+                            //layer.msg('操作成功', {icon: 1});
+                            alert("操作成功");
+                            window.location.reload();
+
+                        }else{
+                            layer.msg(data.message, {icon: 2,time: 2000});
+                        }
+                        layer.closeAll();
+                    }
+                })
+            }, function(index){
+                layer.close(index);
+                return false;// 取消
+            }
+        );
     }
 
     // ajax 抓取页面 form 为表单id  page 为当前第几页

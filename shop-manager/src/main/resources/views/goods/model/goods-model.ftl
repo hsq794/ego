@@ -3,31 +3,40 @@
   <head>
       <#include "../../head.ftl">
     <script type="text/javascript">
-    function delfunc(obj){
-    	layer.confirm('确认删除？', {
-    		  btn: ['确定','取消'] //按钮
-    		}, function(){
-   				$.ajax({
-   					type : 'post',
-   					url : $(obj).attr('data-url'),
-   					data : {act:'del',del_id:$(obj).attr('data-id')},
-   					dataType : 'json',
-   					success : function(data){
-   						if(data==1){
-   							layer.msg('操作成功', {icon: 1});
-   							$(obj).parent().parent().remove();
-   						}else{
-   							layer.msg(data, {icon: 2,time: 2000});
-   						}
-   						layer.closeAll();
-   					}
-   				})
-    		}, function(index){
-    			layer.close(index);
-    			return false;// 取消
-    		}
-    	);
-    }
+        /**
+         * 删除
+         * @returns {void}
+         */
+        function delfunc(typeId){
+            layer.confirm('确认删除？', {
+                    btn: ['确定','取消'] //按钮
+                }, function(){
+                    $.ajax({
+                        type : 'post',
+                        url : "${ctx}/goods/model/delete",
+                        data : {
+                            typeId:typeId
+                        },
+                        dataType : 'json',
+                        success : function(result){
+                            if(result.code==200){
+                                // console.log("11111");
+                                //layer.msg('操作成功', {icon: 1});
+                                alert("操作成功");
+                                window.location.reload();
+
+                            }else{
+                                layer.msg(data.message, {icon: 2,time: 2000});
+                            }
+                            layer.closeAll();
+                        }
+                    })
+                }, function(index){
+                    layer.close(index);
+                    return false;// 取消
+                }
+            );
+        }
     
     //全选
     function selectAll(name,obj){
@@ -109,7 +118,7 @@
             <div class="row navbar-form">
             	<div class="col-xs-10"><span class="text-warning">商品模型是用来规定某一类商品共有规格和属性的集合，其中规格会影响商品价格，同一个商品不同的规格价格会不同，而属性仅仅是商品的属性特质展示</span></div>
             	<div class="col-xs-2">
-                   <button type="submit" onclick="location.href='${ctx}/goods/model/add'"  class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增商品模型</button>
+                   <button type="submit" onclick="location.href='${ctx}/goods/model/addPage'"  class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增商品模型</button>
             	</div>
             </div>
           </div>
@@ -132,8 +141,8 @@
                                         <td class="text-center">
                                             <a href="${ctx}/goods/model/attributeList?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>
                                             <a href="${ctx}/goods/model/spec" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="规格列表">规格列表</a>
-                                            <a href="/index/Admin/goods/addEditGoodsType/id/${model.id}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
-                                            <a href="javascript:del_fun('/index/Admin/Goods/delGoodsType/id/${model.id}');" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
+                                            <a href="${ctx}/goods/model/addPage?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+                                            <a href="javascript:delfunc(${model.id});" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 </#list>

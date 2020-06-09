@@ -29,6 +29,14 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
         return goodsAttributeMapper.selectByExample(goodsAttributeExample);
     }
 
+    @Override
+    public GoodsAttribute selectGoodsAttributeById(Integer attrId) {
+        if(StringUtils.isEmpty(attrId)){
+            return null;
+        }
+        return goodsAttributeMapper.selectByPrimaryKey(attrId);
+    }
+
     /**
      * 商品属性列表 分页
      * @param id
@@ -48,5 +56,77 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
         }
         PageInfo<GoodsAttribute> pageInfo = new PageInfo<>(goodsAttributeMapper.selectByExample(goodsAttributeExample));
         return BaseResult.success(pageInfo);
+    }
+
+    /**
+     * 商品属性添加功能实现
+     * @param goodsAttribute
+     * @return
+     */
+    @Override
+    public BaseResult addGoodsAttribute(GoodsAttribute goodsAttribute) {
+        if(StringUtils.isEmpty(goodsAttribute.getAttrName())){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getTypeId()){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getAttrIndex()){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getAttrInputType()){
+            return BaseResult.error();
+        }else {
+            if(1==goodsAttribute.getAttrInputType()){
+                if (null==goodsAttribute.getAttrValues()){
+                    return BaseResult.error();
+                }
+            }
+        }
+        goodsAttribute.setAttrOrder((byte) 50);
+        int row = goodsAttributeMapper.insert(goodsAttribute);
+        return row>0?BaseResult.success():BaseResult.error();
+    }
+
+    /**
+     * 商品属性修改功能实现
+     * @param goodsAttribute
+     * @return
+     */
+    @Override
+    public BaseResult updateGoodsAttribute(GoodsAttribute goodsAttribute) {
+        if(null!=goodsAttribute.getAttrId()){
+            GoodsAttribute goodsAttribute1 = goodsAttributeMapper.selectByPrimaryKey(goodsAttribute.getAttrId());
+            if (null==goodsAttribute1) {
+                return BaseResult.error();
+            }
+        }
+        if(StringUtils.isEmpty(goodsAttribute.getAttrName())){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getTypeId()){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getAttrIndex()){
+            return BaseResult.error();
+        }
+        if (null==goodsAttribute.getAttrInputType()){
+            return BaseResult.error();
+        }else {
+            if(1==goodsAttribute.getAttrInputType()){
+                if (null==goodsAttribute.getAttrValues()){
+                    return BaseResult.error();
+                }
+            }
+        }
+        goodsAttribute.setAttrOrder((byte) 50);
+        int row = goodsAttributeMapper.updateByPrimaryKey(goodsAttribute);
+        return row>0?BaseResult.success():BaseResult.error();
+    }
+
+    @Override
+    public BaseResult deleteGoodsAttribute(Integer typeId) {
+        int row = goodsAttributeMapper.deleteByPrimaryKey(typeId);
+        return row>0?BaseResult.success():BaseResult.error();
     }
 }

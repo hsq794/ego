@@ -17,7 +17,9 @@ function ajax_submit_form(form_id, submit_url, add_url, list_url,hiddenId) {
         url: submit_url,
         data: $('#' + form_id).serialize(),// 你的formid
         dataType: "JSON",
-
+        error: function (request) {
+            alert("服务器繁忙, 请联系管理员!");
+        },
         success: function (result) {
             before_request = 1; // 标识ajax 请求已经返回
             console.log(result)
