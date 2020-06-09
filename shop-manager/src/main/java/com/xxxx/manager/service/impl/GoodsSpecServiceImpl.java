@@ -52,19 +52,33 @@ public class GoodsSpecServiceImpl implements GoodsSpecService {
     }
 
     /**
-     * 查询某种模型
-     * @param typeName
+     * 根据id查询 GoodsSpec
+     * @param specId
      * @return
      */
     @Override
-    public List<GoodsSpec> selectGoodsSpecByTypeName(String typeName) {
+    public GoodsSpec selectGoodsSpecBySpecId(Integer specId) {
+        //判断非空
+        if(StringUtils.isEmpty(specId)){
+            return null;
+        }
+        return gooodsSpecMapper.selectByPrimaryKey(specId);
+    }
+
+    /**
+     * 查询某种模型
+     * @param id
+     * @return
+     */
+    @Override
+    public List<GoodsSpec> selectGoodsSpecById(Short id) {
         //判断是否为空
-        if(StringUtils.isEmpty(typeName)){
+        if(StringUtils.isEmpty(id)){
             return gooodsSpecMapper.selectByExample(new GoodsSpecExample());
         }
         //创建对象
         GoodsSpecExample example=new GoodsSpecExample();
-        example.createCriteria().andTypeNameEqualTo(typeName);
+        example.createCriteria().andTypeIdEqualTo(id);
         return gooodsSpecMapper.selectByExample(example);
     }
 
@@ -81,7 +95,7 @@ public class GoodsSpecServiceImpl implements GoodsSpecService {
         if(StringUtils.isEmpty(goodsSpec)){
             return 0;
         }
-        return gooodsSpecMapper.updateByExample(goodsSpec,new GoodsSpecExample());
+        return gooodsSpecMapper.updateByPrimaryKeySelective(goodsSpec);
     }
 
     /**

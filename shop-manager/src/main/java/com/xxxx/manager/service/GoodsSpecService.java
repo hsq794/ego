@@ -21,9 +21,15 @@ public interface GoodsSpecService {
     int InsertGoodsSpec(GoodsSpec goodsSpec);
 
     /**
+     * 根据id 查询对象
+     * @param specId
+     * @return
+     */
+    GoodsSpec selectGoodsSpecBySpecId(Integer specId);
+    /**
      * 查询某种模型
      */
-    List<GoodsSpec> selectGoodsSpecByTypeName(String typeName);
+    List<GoodsSpec> selectGoodsSpecById(Short id);
 
     /**
      * 修改数据

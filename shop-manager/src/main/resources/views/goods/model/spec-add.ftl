@@ -118,13 +118,13 @@
                         <!--通用信息-->
                     <div class="tab-content">                 	  
                         <div class="tab-pane active" id="tab_tongyong">
-                           
+
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
                                     <td>规格名称：</td>
                                     <td>
-                                        <input value="" name="specName" type="text">
+                                        <input <#if goodsSpec.specName??>value="${goodsSpec.specName}"</#if> name="specName" type="text">
                                         <span id="err_name" style="color:#F00; display:none;"></span>                                        
                                     </td>
                                 </tr>  
@@ -136,7 +136,8 @@
 
                                             <option value="">请选择</option>
                                             <#list typeList as list>
-                                            <option value="${list.id}">${list.name}</option>
+
+                                            <option value="${list.id}" <#if goodsSpec.typeId??><#if (goodsSpec.typeId==list.id)>selected</#if></#if> >${list.name}</option>
                                            <#-- <option value="32">相机</option>
                                             <option value="4">手机</option>
                                             <option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>
@@ -159,7 +160,7 @@
                                 <tr>
                                     <td>规格项：</td> 
                                     <td>
-                                    <textarea rows="5" cols="30" name="specValue"></textarea>
+                                    <textarea rows="5" cols="30" name="specValue"><#if goodsSpec.specValue??>${goodsSpec.specValue}</#if></textarea>
 									一行为一个规格项
                                     <span id="err_items" style="color:#F00; display:none;"></span>
                                     </td>
@@ -167,17 +168,18 @@
                                 <tr>
                                     <td>排序：</td>
                                     <td>
-                                        <input value="50" name="specOrder" type="text">
+                                        <input <#if goodsSpec.specOrder??>value="${goodsSpec.specOrder}"</#if> name="specOrder" type="text">
                                         <span id="err_order" style="color:#F00; display:none;"></span>                                        
                                     </td>
                                 </tr>                                                           
                                 </tbody>                                
                                 </table>
+
                         </div>                           
                     </div>              
                     <div class="pull-right">
-                        <input name="id" value="" type="hidden">
-                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditSpecForm','${ctx}/goods/spec/save','${ctx}/goods/spec/add','${ctx}/goods/model/spec','id');" data-original-title="保存"><i class="fa fa-save"></i></button>
+                        <input name="specId" <#if goodsSpec.specId??>value="${goodsSpec.specId}"</#if> type="hidden">
+                        <button class="btn btn-primary" title="" data-toggle="tooltip" type="button" onclick="ajax_submit_form('addEditSpecForm','${ctx}/goods/spec/save','${ctx}/goods/spec/add','${ctx}/goods/model/spec','specId');" data-original-title="保存"><i class="fa fa-save"></i></button>
                     </div>
 			    <input name="__hash__" value="a233532f2a8e0afcb9726f917e56fc98_0f966e0492f97242652d5d5f6a9a5e9a" type="hidden"></form><!--表单数据-->
                 </div>
