@@ -6,9 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class UserLeague extends User {
     private Integer score;
 
+    public UserLeague() {
+    }
+
+    public UserLeague(Integer userId, String userName, Integer score) {
+        super(userId, userName);
+        this.score = score;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 }
