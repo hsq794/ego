@@ -1,16 +1,13 @@
 package com.xxxx.manager.pojo;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private Integer  userId;
-    private String userName;
+public class UserLeague extends User {
+    private Integer score;
 
 }
