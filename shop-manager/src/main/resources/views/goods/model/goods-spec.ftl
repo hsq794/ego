@@ -30,7 +30,11 @@
 
                         <option value="">请选择</option>
                         <#list typeList as list>
-                            <option value="${list.id}">${list.name}</option>
+                            <#if typeId??>
+                            <option value="${list.id}" <#if (list.id==typeId)> selected</#if> >${list.name}</option>
+                            <#else>
+                                <option value="${list.id}">${list.name}</option>
+                            </#if>
                         <#-- <option value="32">相机</option>
                          <option value="4">手机</option>
                          <option value="31">电池、电源、充电器</option><option value="8">化妆品</option><option value="9">精品手机</option><option value="30">洗衣机</option><option value="29">冰箱</option><option value="16">路由器</option><option value="15">平板电脑</option><option value="13">衣服</option><option value="17">网络盒子</option><option value="18">电视</option><option value="19">家纺</option><option value="20">吸顶灯</option><option value="21">床</option><option value="22">雨伞</option><option value="23">餐具</option><option value="24">毛呢大衣</option><option value="25">针织衫</option><option value="26">文胸</option><option value="27">香水</option><option value="28">珠宝</option><option value="34">测试</option>
@@ -100,6 +104,7 @@
     <div class="col-sm-6 text-right"><div class="dataTables_paginate paging_simple_numbers"><ul class="pagination">    </ul></div></div>
 </div>
 <script>
+
     function shaixuan(){
       var id=$('#type_id option:selected') .val();
             window.location.href="${ctx}/goods/spec/select?id="+id;

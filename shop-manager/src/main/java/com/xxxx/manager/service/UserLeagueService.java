@@ -2,12 +2,14 @@ package com.xxxx.manager.service;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.xxxx.common.result.BaseResult;
 import com.xxxx.manager.pojo.User;
 import com.xxxx.manager.vo.UserLeague;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,16 +35,16 @@ public class UserLeagueService {
     /**
      * 添加用户积分信息
      */
-    public String addOrUpdatePoints(Integer userId,Integer score){
+    public BaseResult addOrUpdatePoints(Integer userId, Integer score){
         //判断用户
         if(null==userId){
-            return "用户id不能为空!";
+            return BaseResult.error();
         }
         //获取key
         String key=formatZSetKey();
         //添加用户积分，使用SortedSet 插入积分自动排名
         redisTemplate.opsForZSet().incrementScore(key,userId,score);
-        return "添加用户积分信息成功!";
+        return BaseResult.success();
     }
 
     /**
@@ -74,7 +76,7 @@ public class UserLeagueService {
         Set<Integer> userIds=redisTemplate.opsForZSet().reverseRange(key,0,limit-1);
         return userIds.stream().map(userId->{
             //根据key用户id获取用户信息
-            Map userMap=(Map) redisTemplate.opsForHash().get(key,userId);
+            Object userMap = redisTemplate.opsForHash().get("user", String.valueOf(userId));
             //反序列化为user对象
             ObjectMapper objectMapper=new ObjectMapper();
             User user=objectMapper.convertValue(userMap,User.class);

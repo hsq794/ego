@@ -32,7 +32,8 @@ public class GoodsSpecController {
      * @return
      */
     @RequestMapping("/model/spec")
-    public String goodsSpecList(Model model) {
+    public String goodsSpecList(Model model,Integer id) {
+        model.addAttribute("typeId",id);
         //全部模型
         model.addAttribute("typeList", goodsModelService.selectGoodsModel());
         //商品规则

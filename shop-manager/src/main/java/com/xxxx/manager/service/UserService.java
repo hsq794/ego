@@ -4,6 +4,7 @@ import com.xxxx.common.result.BaseResult;
 import com.xxxx.manager.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Service
 public class UserService {
 
     @Autowired
@@ -42,7 +44,7 @@ public class UserService {
 
         List<Integer> userIdList = Stream.of(users).map(user -> {
             //将数据存到redis
-            redisTemplate.opsForHash().put("user", user.getUserId(), user);
+            redisTemplate.opsForHash().put("user", String.valueOf(user.getUserId()), user);
             return user.getUserId();
         }).collect(Collectors.toList());
 

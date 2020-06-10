@@ -140,7 +140,7 @@
                                         <td class="text-center">${model.name}</td>
                                         <td class="text-center">
                                             <a href="${ctx}/goods/model/attributeList?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="属性列表">属性列表</a>
-                                            <a href="${ctx}/goods/model/spec" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="规格列表">规格列表</a>
+                                            <a href="${ctx}/goods/model/spec?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-info" data-original-title="规格列表">规格列表</a>
                                             <a href="${ctx}/goods/model/addPage?id=${model.id}" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
                                             <a href="javascript:delfunc(${model.id});" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
                                         </td>
