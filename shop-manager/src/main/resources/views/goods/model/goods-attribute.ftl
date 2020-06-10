@@ -147,9 +147,11 @@
                 <th class="sorting text-right">操作</th> 
             </tr>
             </thead>
+            <#list goodsModel as model>
             <tbody id="goodsContent">
 
             </tbody>
+            </#list>
         </table>
     </div>
 <input name="__hash__" value="9dfb4325c77ab60718bef22df39852ac_8ac79714c92a6310791e7291bbb4c681" type="hidden"></form>
@@ -184,8 +186,18 @@
         </td>
         <td class="text-right">{{=it[i].attrId}}</td>
         <td class="text-left">{{=it[i].attrName}}</td>
-        <td class="text-left">{{=it[i].typeId}}</td>
-        <td class="text-left">{{=it[i].attrInputType}}</td>
+
+        <td class="text-left">{{=it[i].typeName}}</td>
+
+        <td class="text-left">
+            {{? it[i].attrInputType==0 }}
+                手工录入
+            {{?? it[i].attrInputType==1}}
+                从列表中选择
+            {{??}}
+                多行文本框
+            {{?}}
+        </td>
         <td class="text-left"></td>
         <td class="text-center">
             <img src="${ctx}/static/images/yes.png" onclick="changeTableVal('goods_attribute','attr_id','329','attr_index',this)" width="20" height="20">
@@ -227,8 +239,10 @@
 
 <script>
     $(document).ready(function () {
+
         // ajax 加载商品列表
         ajax_get_table(1);
+
 
     });
 

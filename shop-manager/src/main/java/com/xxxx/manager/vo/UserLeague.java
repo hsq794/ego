@@ -1,5 +1,6 @@
-package com.xxxx.manager.pojo;
+package com.xxxx.manager.vo;
 
+import com.xxxx.manager.pojo.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -4,20 +4,26 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxxx.common.result.BaseResult;
 import com.xxxx.manager.mapper.GoodsAttributeMapper;
+import com.xxxx.manager.mapper.GoodsTypeMapper;
 import com.xxxx.manager.pojo.GoodsAttribute;
 import com.xxxx.manager.pojo.GoodsAttributeExample;
+import com.xxxx.manager.pojo.GoodsType;
 import com.xxxx.manager.service.GoodsAttributeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class GoodsAttributeServiceImpl implements GoodsAttributeService {
 
     @Autowired
     private GoodsAttributeMapper goodsAttributeMapper;
+
+    @Autowired
+    private GoodsTypeMapper goodsTypeMapper;
 
     @Override
     public List<GoodsAttribute> selectGoodsAttribute(Integer id) {
@@ -54,7 +60,15 @@ public class GoodsAttributeServiceImpl implements GoodsAttributeService {
         if (null!=id && 0!=id){
             goodsAttributeExample.createCriteria().andTypeIdEqualTo(id);
         }
-        PageInfo<GoodsAttribute> pageInfo = new PageInfo<>(goodsAttributeMapper.selectByExample(goodsAttributeExample));
+        List<GoodsAttribute> goodsAttributes = goodsAttributeMapper.selectByExample(goodsAttributeExample);
+        goodsAttributes.forEach(goodsAttribute -> {
+            GoodsType goodsType = goodsTypeMapper.selectByPrimaryKey(goodsAttribute.getTypeId());
+
+            goodsAttribute.setTypeName(goodsType.getName());
+
+        });
+        PageInfo<GoodsAttribute> pageInfo = new PageInfo<>(goodsAttributes);
+
         return BaseResult.success(pageInfo);
     }
 
