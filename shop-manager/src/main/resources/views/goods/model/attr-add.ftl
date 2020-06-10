@@ -132,7 +132,7 @@
                                 <tr>
                                     <td>所属商品类型：</td>
                                     <td>
-                                        <select name="typeId" id="type_id">
+                                        <select name="typeId" id="type_id" >
                                             <option value="">请选择</option>
                                             <#list goodsModel as model>
                                                 <option value="${model.id}" <#if goodsAttribute.typeId??><#if (model.id==goodsAttribute.typeId)>selected</#if></#if> >${model.name}</option>

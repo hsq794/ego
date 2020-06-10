@@ -26,7 +26,7 @@
           <div class="navbar navbar-default">
               <form action="" id="search-form2" class="navbar-form form-inline" method="post" onsubmit="return false">
                 <div class="form-group">
-                    <select name="typeId" id="type_id">
+                    <select name="typeId" id="type_id" class="form-control">
 
                         <option value="">请选择</option>
                         <#list typeList as list>

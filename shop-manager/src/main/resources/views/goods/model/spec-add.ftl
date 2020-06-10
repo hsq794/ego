@@ -132,7 +132,7 @@
                                     <td>所属商品类型：</td>
                                     <td>
 
-                                        <select name="typeId" id="type_id">
+                                        <select name="typeId" id="type_id" >
 
                                             <option value="">请选择</option>
                                             <#list typeList as list>
